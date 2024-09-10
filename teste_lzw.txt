@@ -1,0 +1,3 @@
+Este é um teste simples para o algoritmo de compressão LZW.
+Vamos verificar se o código consegue comprimir este arquivo com sucesso e, em seguida,
+descomprimir para garantir que os dados originais sejam recuperados corretamente.
