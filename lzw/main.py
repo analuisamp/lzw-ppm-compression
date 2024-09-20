@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     # Compressão
     inicio = time()
-    compressed_data, comprimento_medio = compressor(data, tam_max, method)  # Chama a compressão
+    compressed_data, comprimento_medio = compressor(data, tam_max, method, save_dict=True)
     fim = time()
 
     # Calcula o tamanho do arquivo comprimido e coloca nos 5 primeiros bytes do arquivo
