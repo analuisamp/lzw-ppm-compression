@@ -1,6 +1,7 @@
 from bitarray import bitarray
+import json
 
-def compressor(dados_entrada, tam_max, method):
+def compressor(dados_entrada, tam_max, method, save_dict=False):  # Adicionando o argumento save_dict
     tam_max_dict = pow(2, tam_max)
     dictionary_size = 256  # Tamanho inicial do dicionário
     tam_bits = 8  # Quantidade de bits necessária inicialmente
@@ -39,5 +40,11 @@ def compressor(dados_entrada, tam_max, method):
     if current:
         result.extend(format(dictionary[current], 'b').zfill(tam_bits))
         comprimento_medio.append(len(result) / comprimento_total)
+
+    # Salva o dicionário em um arquivo se a opção save_dict for True
+    if save_dict:
+        with open("static_dictionary.json", "w") as dict_file:
+            json_dict = {str(k): v for k, v in dictionary.items()}  # Convertendo as chaves para string
+            json.dump(json_dict, dict_file)
 
     return result, comprimento_medio
